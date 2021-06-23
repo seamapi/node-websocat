@@ -11,6 +11,7 @@ module.exports = (config) => {
   if (config.onshot) args.push("--oneshot")
   if (config.oneMessage) args.push("-1")
   if (config.nullTerminated) args.push("-0")
+  if (config.verbose) args.push("-v")
 
   if (config.headers) {
     args.push(

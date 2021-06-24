@@ -46,6 +46,11 @@ module.exports.create = async (config) => {
     checkIfRunning()
   })
 
+  process.on("SIGINT", () => proc.kill("SIGINT"))
+  process.on("SIGUSR1", () => proc.kill("SIGINT"))
+  process.on("SIGUSR2", () => proc.kill("SIGINT"))
+  process.on("exit", () => proc.kill("SIGINT"))
+
   return {
     proc,
     stop: async () => {

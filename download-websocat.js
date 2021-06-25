@@ -26,7 +26,7 @@ switch (platform) {
     osRelease = "freebsd"
     break
   case "linux":
-    osRelease = `${arch.replace("x64", "amd64")}-linux`
+    osRelease = `${arch.replace("x64", "amd64")}-linux-static`
     break
   // case 'aix': console.log("IBM AIX platform");
   //   break;

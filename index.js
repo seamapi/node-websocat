@@ -22,6 +22,7 @@ module.exports.create = async (config) => {
 
   let isClosed = false
   proc.on("close", (code) => {
+    console.log(`${config.logPrefix || "websocat"} closing`)
     isClosed = true
   })
 

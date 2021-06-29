@@ -14,10 +14,10 @@ module.exports.create = async (config) => {
     shell: true,
   })
   proc.stdout.on("data", (data) => {
-    console.log(`websocat stdout: ${data}`)
+    console.log(`${config.logPrefix || "websocat"} stdout: ${data}`)
   })
   proc.stderr.on("data", (data) => {
-    console.log(`websocat stderr: ${data}`)
+    console.log(`${config.logPrefix || "websocat"} stderr: ${data}`)
   })
 
   let isClosed = false

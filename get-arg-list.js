@@ -17,7 +17,7 @@ module.exports = (config) => {
     args.push(
       ...Object.entries(config.headers).flatMap(([k, v]) => [
         "-H",
-        `${k}: ${v}`,
+        `"${k}: ${v}"`,
       ])
     )
   }

@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "install": "node install.js",
-    "test": "ava tests/**/*.test.js"
+    "test": "ava tests/**/*.test.js",
+    "clean": "rm -f github_releases.json && rimraf websocat_"
   },
   "dependencies": {
     "bent": "^7.3.10",
@@ -15,6 +16,7 @@
     "ava": "^3.12.1",
     "get-port": "^5.1.1",
     "micro": "^9.3.4",
+    "rimraf": "^3.0.2",
     "test-listen": "^1.1.0"
   }
 }

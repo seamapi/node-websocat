@@ -1,7 +1,12 @@
 const child_process = require("child_process")
-const fs = require("fs")
-const path = require("path")
 const getArgList = require("./get-arg-list")
+const debug = require("debug")("websocat")
+const bunyan = require("bunyan")
+
+const log = bunyan.createLogger({
+  name: "websocat",
+  level: debug.enabled ? "trace" : "info",
+})
 
 const downloadwebsocat = require("./download-websocat")
 
@@ -9,20 +14,20 @@ module.exports.create = async (config) => {
   const websocatPath = await downloadwebsocat()
   const argList = await getArgList(config)
 
-  console.log(`${websocatPath} ${argList.join(" ")}`)
+  log.trace(`${websocatPath} ${argList.join(" ")}`)
   const proc = child_process.spawn(websocatPath, argList, {
     shell: true,
   })
   proc.stdout.on("data", (data) => {
-    console.log(`${config.logPrefix || "websocat"} stdout: ${data}`)
+    log.trace(`${config.logPrefix || "websocat"} stdout: ${data}`)
   })
   proc.stderr.on("data", (data) => {
-    console.log(`${config.logPrefix || "websocat"} stderr: ${data}`)
+    log.trace(`${config.logPrefix || "websocat"} stderr: ${data}`)
   })
 
   let isClosed = false
   proc.on("close", (code) => {
-    console.log(`${config.logPrefix || "websocat"} closing`)
+    log.trace(`${config.logPrefix || "websocat"} closing`)
     isClosed = true
   })
 

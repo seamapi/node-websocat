@@ -20,19 +20,19 @@ const httpInWebSocketOut = await websocat.create({
   listen: "tcp-l:127.0.0.1:3001",
   host: "ws://127.0.0.1:3002",
   exitOnEOF: true,
-  binary: true
+  binary: true,
 })
 
 // Start a websocat that ingests messages from a websocket and forwards
 // to our hello world server
-const websocketIn= await websocat.create({
+const websocketIn = await websocat.create({
   listen: "ws-l:127.0.0.1:3002",
   host: "tcp:127.0.0.1:5000",
   exitOnEOF: true,
-  binary: true
+  binary: true,
 })
 
-const response = await request(`http://127.0.0.1:2000`) 
+const response = await request(`http://127.0.0.1:2000`)
 // response === "Hello world!"
 
 await httpInWebSocketOut.stop()
@@ -52,7 +52,7 @@ await websocat.create({
   // Close a data transfer direction if the other one reached EOF
   exitOnEOF: false,
 
-  // strict line/message mode: drop too long messages instead of 
+  // strict line/message mode: drop too long messages instead of
   // splitting them, drop incomplete lines.
   strict: false,
 
@@ -86,12 +86,12 @@ await websocat.create({
 
   // Add custom HTTP headers to websocket client request.
   headers: {
-    Authorization: "Bearer SomeToken"
+    Authorization: "Bearer SomeToken",
   },
 
   // Add custom HTTP header to websocket upgrade reply.
   serverHeaders: {
-    Authorization: "Bearer SomeToken"
-  }
+    Authorization: "Bearer SomeToken",
+  },
 })
 ```

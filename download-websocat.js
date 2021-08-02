@@ -59,7 +59,7 @@ module.exports = async () => {
       fs.readFileSync(githubReleasesJSONPath).toString()
     )
   }
-  const { assets } = githubReleasesJSON 
+  const { assets } = githubReleasesJSON
 
   // Find the asset for my operating system
   const myAsset = assets.find((asset) => asset.name.includes(osRelease))

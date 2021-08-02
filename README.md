@@ -2,7 +2,7 @@
 
 > Netcat, curl and socat for WebSockets.
 
-Use [websocat](https://github.com/vi/websocat) as an npm module for tighter integration with node apps.
+Use [websocat](https://github.com/vi/websocat) as an npm module for tighter integration with node apps. Automatically downloads websocat.
 
 ## Usage
 

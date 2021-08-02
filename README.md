@@ -6,7 +6,9 @@ Use [websocat](https://github.com/vi/websocat) as an npm module for tighter inte
 
 ## Usage
 
-`npm install websocat`
+```bash
+npm install websocat
+```
 
 ```javascript
 const websocat = require("websocat")

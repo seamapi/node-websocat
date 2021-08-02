@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "bent": "^7.3.10",
+    "bunyan": "^1.8.15",
+    "debug": "^4.3.2",
     "follow-redirects": "^1.14.1"
   },
   "devDependencies": {
